@@ -5,7 +5,7 @@ using tthk_xamarin_mdp.Views;
 
 namespace tthk_xamarin_mdp
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage
     {
         /* Прошу нести салфетки и готовиться вытирать слёзы. В настоящем ТЗ я бы никогда так не сделал,
            но Xamarin не особо хорошо работает с Embedded-файлами отличными от изображений, а писать отдельный
@@ -88,14 +88,15 @@ namespace tthk_xamarin_mdp
             profileImage.Source = ImageSource.FromUri(new Uri("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Xamarin-logo.svg/1280px-Xamarin-logo.svg.png"));
             aboutList.ItemsSource = itemsList;
             aboutList.ItemSelected += AboutListOnItemSelected;
-            listView.ItemsSource = itemsList;
+            var aboutPage = new AboutPage();
+            Detail = new NavigationPage(aboutPage);
         }
 
         private void AboutListOnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedMenuItem = (MasterMenuItem) e.SelectedItem;
+            var selectedMenuItem = e.SelectedItem as MasterMenuItem;
             var selectedPage = selectedMenuItem.TargetPage;
-            Detail.BindingContext = selectedPage;
+            Detail = new NavigationPage(selectedPage);
             IsPresented = false;
         }
 
@@ -109,7 +110,7 @@ namespace tthk_xamarin_mdp
                 {
                     Text = pageNames[i],
                     Detail = pageDetails[i],
-                    ImagePath = pageImages[i],
+                    ImagePath = ImageSource.FromUri(new Uri(pageImages[i])),
                     TargetPage = currentPage
                 });
             }

@@ -23,20 +23,6 @@
     </MasterDetailPage.Master>
     
     <MasterDetailPage.Detail>
-        <ContentPage>
-            <ContentPage.Content>
-                <ListView x:Name="listView">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Text}"/>
-                                <Label Text="{Binding Detail}"/>
-                            </StackLayout>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ContentPage.Content>
-        </ContentPage>
     </MasterDetailPage.Detail>
 
 </MasterDetailPage>

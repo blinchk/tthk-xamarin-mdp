@@ -9,7 +9,7 @@ namespace tthk_xamarin_mdp
 
         public string Detail { get; set; }
 
-        public string ImagePath { get; set; }
+        public ImageSource ImagePath { get; set; }
 
         public ContentPage TargetPage { get; set; }
     }
