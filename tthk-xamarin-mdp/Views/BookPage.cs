@@ -34,7 +34,7 @@ namespace tthk_xamarin_mdp.Views
             readMoreButton.Clicked += ReadMoreButtonOnClicked;
             var stackLayout = new StackLayout()
             {
-                Margin = 10,
+                Margin = new Thickness(10),
                 Children = { pageHeader, pageImage, pageText, readMoreButton }
             };
             var scrollView = new ScrollView() // Content of page can be large
